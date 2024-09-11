@@ -25,10 +25,10 @@ class Config(object):
     # In your production app, Microsoft recommends you to use other ways to store your secret,
     # such as KeyVault, or environment variable as described in Flask's documentation here:
     # https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
-    CLIENT_ID = os.getenv("CLIENT_ID")
+    CLIENT_ID = os.environ.get("CLIENT_ID")
     if not CLIENT_ID:
         raise ValueError("Need to define CLIENT_ID environment variable")
-    CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+    CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
     if not CLIENT_SECRET:
         raise ValueError("Need to define CLIENT_SECRET environment variable")
 
