@@ -16,7 +16,7 @@ app.config.from_object(Config)
 streamHandler = logging.StreamHandler()
 
 # Set the logging level for the stream handler to match the application's logging level
-streamHandler.setLevel(logging.WARNING)
+streamHandler.setLevel(logging.INFO)
 
 # Define the log format
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
