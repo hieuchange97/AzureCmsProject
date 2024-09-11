@@ -12,7 +12,13 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 # TODO: Add any logging levels and handlers with app.logger
-# Create a stream handler
+# Remove all existing handlers associated with the logger
+app.logger.handlers.clear()
+
+# Set the logging level for the logger itself to INFO
+app.logger.setLevel(logging.INFO)
+
+# Create a StreamHandler to output to sys.stderr
 streamHandler = logging.StreamHandler()
 
 # Set the logging level for the stream handler to match the application's logging level
@@ -24,7 +30,7 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 # Set the formatter for the stream handler
 streamHandler.setFormatter(formatter)
 
-# Add the file handler to the logger
+# Add the stream handler to the logger
 app.logger.addHandler(streamHandler)
 
 Session(app)
